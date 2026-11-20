@@ -2,7 +2,7 @@
 
 > Your coding stats, beautifully. A gorgeous iOS client for [Hackatime](https://hackatime.hackclub.com) with iOS 27-inspired glassmorphic UI.
 
-[![Build iOS](https://github.com/FBIopeningUPP/hackatime-ios/actions/workflows/build-ios.yml/badge.svg)](https://github.com/FBIopeningUPP/hackatime-ios/actions/workflows/build-ios.yml)
+[![Build iOS](https://github.com/FBIopeningUPP/hackstat/actions/workflows/build-ios.yml/badge.svg)](https://github.com/FBIopeningUPP/hackstat/actions/workflows/build-ios.yml)
 ![iOS 17+](https://img.shields.io/badge/iOS-17%2B-blue?logo=apple)
 ![Flutter](https://img.shields.io/badge/Flutter-3.24-02569B?logo=flutter)
 ![License](https://img.shields.io/badge/License-MIT-green)
@@ -30,15 +30,15 @@
 
 ### Quick Install
 
-1. Go to [**Actions → Latest Build**](../../actions)
+1. Go to [**Actions → Latest Build**](https://github.com/FBIopeningUPP/hackstat/actions)
 2. Download **Hackstat-iOS** artifact
 3. Install `.ipa` via **iLoader** / **SideStore** / **AltStore**
 
 ### Build Yourself
 
 ```bash
-git clone https://github.com/FBIopeningUPP/hackatime-ios.git
-cd hackatime-ios
+git clone https://github.com/FBIopeningUPP/hackstat.git
+cd hackstat
 flutter pub get
 flutter build ios --release --no-codesign  # Requires macOS
 ```

@@ -1,56 +1,55 @@
-name: Build iOS IPA
+name: Build Hackstat
 
 on:
   push:
     branches: [main, master]
   pull_request:
     branches: [main, master]
-  workflow_dispatch:  # Allows manual trigger
+  workflow_dispatch:
 
 jobs:
   build-ios:
-    name: Build iOS App
-    runs-on: macos-14  # M1 Mac runner (faster)
+    name: 📱 Build iOS
+    runs-on: macos-14
     
     steps:
-      - name: Checkout code
+      - name: Checkout
         uses: actions/checkout@v4
 
       - name: Setup Flutter
         uses: subosito/flutter-action@v2
         with:
-          flutter-version: '3.24.0'
+          flutter-version: '3.24.5'
           channel: 'stable'
           cache: true
 
-      - name: Install dependencies
+      - name: Get dependencies
         run: flutter pub get
 
-      - name: Build iOS (unsigned)
-        run: |
-          flutter build ios --release --no-codesign
+      - name: Build iOS
+        run: flutter build ios --release --no-codesign
           
-      - name: Create unsigned IPA
+      - name: Create IPA
         run: |
           cd build/ios/iphoneos
-          mkdir -p Payload
+          mkdir Payload
           cp -r Runner.app Payload/
-          zip -r ../../../Hackstat.ipa Payload
+          zip -r Hackstat.ipa Payload
+          mv Hackstat.ipa ../../../
           
-      - name: Upload IPA artifact
+      - name: Upload IPA
         uses: actions/upload-artifact@v4
         with:
           name: Hackstat-iOS
           path: Hackstat.ipa
-          retention-days: 30
+          retention-days: 90
 
-  # Optional: Also build Android APK
   build-android:
-    name: Build Android APK
+    name: 🤖 Build Android
     runs-on: ubuntu-latest
     
     steps:
-      - name: Checkout code
+      - name: Checkout
         uses: actions/checkout@v4
 
       - name: Setup Java
@@ -62,19 +61,22 @@ jobs:
       - name: Setup Flutter
         uses: subosito/flutter-action@v2
         with:
-          flutter-version: '3.24.0'
+          flutter-version: '3.24.5'
           channel: 'stable'
           cache: true
 
-      - name: Install dependencies
+      - name: Get dependencies
         run: flutter pub get
 
       - name: Build APK
         run: flutter build apk --release
 
-      - name: Upload APK artifact
+      - name: Rename APK
+        run: mv build/app/outputs/flutter-apk/app-release.apk Hackstat.apk
+
+      - name: Upload APK
         uses: actions/upload-artifact@v4
         with:
           name: Hackstat-Android
-          path: build/app/outputs/flutter-apk/app-release.apk
-          retention-days: 30
+          path: Hackstat.apk
+          retention-days: 90

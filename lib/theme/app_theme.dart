@@ -80,7 +80,7 @@ class AppTheme {
         surface: surfaceColor,
         error: accentPink,
       ),
-      fontFamily: 'SF Pro Display',
+      // Uses system font (SF Pro on iOS, Roboto on Android)
       textTheme: const TextTheme(
         displayLarge: TextStyle(
           fontSize: 34,
