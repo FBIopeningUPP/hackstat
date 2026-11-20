@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="400" height="820" viewBox="0 0 400 820" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Gradients -->
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a1a2e"/>
+      <stop offset="50%" style="stop-color:#16213e"/>
+      <stop offset="100%" style="stop-color:#0f0f23"/>
+    </linearGradient>
+    <linearGradient id="cardGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0A84FF;stop-opacity:0.3"/>
+      <stop offset="100%" style="stop-color:#5E5CE6;stop-opacity:0.2"/>
+    </linearGradient>
+    <linearGradient id="blueGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#0A84FF"/>
+      <stop offset="100%" style="stop-color:#64D2FF"/>
+    </linearGradient>
+    <linearGradient id="purpleGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#5E5CE6"/>
+      <stop offset="100%" style="stop-color:#BF5AF2"/>
+    </linearGradient>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <!-- Phone frame gradient -->
+    <linearGradient id="frameGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#2d2d2d"/>
+      <stop offset="50%" style="stop-color:#1a1a1a"/>
+      <stop offset="100%" style="stop-color:#0d0d0d"/>
+    </linearGradient>
+  </defs>
+  
+  <!-- Phone Frame -->
+  <rect x="10" y="10" width="380" height="800" rx="55" ry="55" fill="url(#frameGrad)" stroke="#404040" stroke-width="2"/>
+  
+  <!-- Screen -->
+  <rect x="22" y="22" width="356" height="776" rx="45" ry="45" fill="url(#bgGrad)"/>
+  
+  <!-- Dynamic Island -->
+  <rect x="145" y="35" width="110" height="32" rx="16" ry="16" fill="#000"/>
+  
+  <!-- Status Bar -->
+  <text x="50" y="55" font-family="Arial, sans-serif" font-size="14" font-weight="600" fill="#fff">9:41</text>
+  <text x="320" y="55" font-family="Arial, sans-serif" font-size="14" fill="#fff">100%</text>
+  
+  <!-- Header -->
+  <text x="40" y="110" font-family="Arial, sans-serif" font-size="16" fill="#8E8E93">Good evening,</text>
+  <text x="40" y="145" font-family="Arial, sans-serif" font-size="32" font-weight="700" fill="#fff">Coder 👋</text>
+  
+  <!-- Total Time Card -->
+  <rect x="30" y="170" width="340" height="140" rx="20" ry="20" fill="url(#cardGrad)" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+  <circle cx="60" cy="205" r="18" fill="rgba(255,255,255,0.15)"/>
+  <text x="55" y="211" font-family="Arial, sans-serif" font-size="18" fill="#fff">⏱</text>
+  <text x="90" y="210" font-family="Arial, sans-serif" font-size="14" fill="rgba(255,255,255,0.7)">Total Coding Time</text>
+  <text x="40" y="270" font-family="Arial, sans-serif" font-size="48" font-weight="800" fill="#fff" filter="url(#glow)">47h 23m</text>
+  <text x="40" y="300" font-family="Arial, sans-serif" font-size="14" fill="#30D158">📈 6h 45m daily average</text>
+  
+  <!-- Activity Card -->
+  <rect x="30" y="325" width="340" height="160" rx="20" ry="20" fill="rgba(44,44,46,0.6)" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+  <text x="50" y="360" font-family="Arial, sans-serif" font-size="18" font-weight="600" fill="#fff">Activity</text>
+  
+  <!-- Bar Chart -->
+  <rect x="55" y="420" width="30" height="45" rx="4" fill="url(#purpleGrad)" opacity="0.7"/>
+  <rect x="95" y="400" width="30" height="65" rx="4" fill="url(#purpleGrad)" opacity="0.7"/>
+  <rect x="135" y="430" width="30" height="35" rx="4" fill="url(#purpleGrad)" opacity="0.7"/>
+  <rect x="175" y="390" width="30" height="75" rx="4" fill="url(#purpleGrad)" opacity="0.7"/>
+  <rect x="215" y="410" width="30" height="55" rx="4" fill="url(#purpleGrad)" opacity="0.7"/>
+  <rect x="255" y="440" width="30" height="25" rx="4" fill="url(#purpleGrad)" opacity="0.7"/>
+  <rect x="295" y="380" width="30" height="85" rx="4" fill="url(#blueGrad)"/>
+  
+  <!-- Day labels -->
+  <text x="62" y="478" font-family="Arial, sans-serif" font-size="11" fill="#636366">M</text>
+  <text x="104" y="478" font-family="Arial, sans-serif" font-size="11" fill="#636366">T</text>
+  <text x="143" y="478" font-family="Arial, sans-serif" font-size="11" fill="#636366">W</text>
+  <text x="185" y="478" font-family="Arial, sans-serif" font-size="11" fill="#636366">T</text>
+  <text x="226" y="478" font-family="Arial, sans-serif" font-size="11" fill="#636366">F</text>
+  <text x="266" y="478" font-family="Arial, sans-serif" font-size="11" fill="#636366">S</text>
+  <text x="305" y="478" font-family="Arial, sans-serif" font-size="11" fill="#636366">S</text>
+  
+  <!-- Languages Card -->
+  <rect x="30" y="500" width="340" height="200" rx="20" ry="20" fill="rgba(44,44,46,0.6)" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+  <text x="50" y="535" font-family="Arial, sans-serif" font-size="18" font-weight="600" fill="#fff">Languages</text>
+  <rect x="310" y="518" width="40" height="24" rx="8" fill="rgba(10,132,255,0.2)"/>
+  <text x="322" y="535" font-family="Arial, sans-serif" font-size="13" font-weight="600" fill="#0A84FF">6</text>
+  
+  <!-- Python -->
+  <rect x="50" y="555" width="12" height="12" rx="3" fill="#3572A5"/>
+  <text x="70" y="566" font-family="Arial, sans-serif" font-size="14" font-weight="500" fill="#fff">Python</text>
+  <text x="280" y="566" font-family="Arial, sans-serif" font-size="13" fill="#8E8E93">18h 42m</text>
+  <rect x="50" y="575" width="300" height="6" rx="3" fill="rgba(255,255,255,0.1)"/>
+  <rect x="50" y="575" width="180" height="6" rx="3" fill="#3572A5"/>
+  
+  <!-- TypeScript -->
+  <rect x="50" y="600" width="12" height="12" rx="3" fill="#3178C6"/>
+  <text x="70" y="611" font-family="Arial, sans-serif" font-size="14" font-weight="500" fill="#fff">TypeScript</text>
+  <text x="280" y="611" font-family="Arial, sans-serif" font-size="13" fill="#8E8E93">12h 08m</text>
+  <rect x="50" y="620" width="300" height="6" rx="3" fill="rgba(255,255,255,0.1)"/>
+  <rect x="50" y="620" width="120" height="6" rx="3" fill="#3178C6"/>
+  
+  <!-- Rust -->
+  <rect x="50" y="645" width="12" height="12" rx="3" fill="#DEA584"/>
+  <text x="70" y="656" font-family="Arial, sans-serif" font-size="14" font-weight="500" fill="#fff">Rust</text>
+  <text x="285" y="656" font-family="Arial, sans-serif" font-size="13" fill="#8E8E93">4h 22m</text>
+  <rect x="50" y="665" width="300" height="6" rx="3" fill="rgba(255,255,255,0.1)"/>
+  <rect x="50" y="665" width="50" height="6" rx="3" fill="#DEA584"/>
+  
+  <!-- Projects Card -->
+  <rect x="30" y="715" width="340" height="70" rx="20" ry="20" fill="rgba(44,44,46,0.6)" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+  <text x="50" y="750" font-family="Arial, sans-serif" font-size="18" font-weight="600" fill="#fff">Projects</text>
+  <text x="310" y="755" font-family="Arial, sans-serif" font-size="20" fill="#636366">📁</text>
+  <text x="50" y="775" font-family="Arial, sans-serif" font-size="12" fill="#8E8E93">hackstat • dotfiles • website</text>
+  
+  <!-- Home Indicator -->
+  <rect x="150" y="780" width="100" height="5" rx="2.5" fill="rgba(255,255,255,0.3)"/>
+</svg>

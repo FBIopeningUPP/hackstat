@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="400" height="820" viewBox="0 0 400 820" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Gradients -->
+    <radialGradient id="bgGrad2" cx="30%" cy="20%" r="80%">
+      <stop offset="0%" style="stop-color:#1a1a4a;stop-opacity:1"/>
+      <stop offset="50%" style="stop-color:#0f0f2a;stop-opacity:1"/>
+      <stop offset="100%" style="stop-color:#0a0a0f;stop-opacity:1"/>
+    </radialGradient>
+    <linearGradient id="iconGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0A84FF"/>
+      <stop offset="100%" style="stop-color:#5E5CE6"/>
+    </linearGradient>
+    <linearGradient id="btnGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#0A84FF"/>
+      <stop offset="100%" style="stop-color:#0A84FF"/>
+    </linearGradient>
+    <filter id="iconGlow" x="-100%" y="-100%" width="300%" height="300%">
+      <feGaussianBlur stdDeviation="15" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <linearGradient id="frameGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#2d2d2d"/>
+      <stop offset="50%" style="stop-color:#1a1a1a"/>
+      <stop offset="100%" style="stop-color:#0d0d0d"/>
+    </linearGradient>
+  </defs>
+  
+  <!-- Phone Frame -->
+  <rect x="10" y="10" width="380" height="800" rx="55" ry="55" fill="url(#frameGrad)" stroke="#404040" stroke-width="2"/>
+  
+  <!-- Screen -->
+  <rect x="22" y="22" width="356" height="776" rx="45" ry="45" fill="url(#bgGrad2)"/>
+  
+  <!-- Ambient glow -->
+  <ellipse cx="140" cy="150" rx="150" ry="100" fill="#0A84FF" opacity="0.08"/>
+  <ellipse cx="280" cy="650" rx="120" ry="80" fill="#5E5CE6" opacity="0.06"/>
+  
+  <!-- Dynamic Island -->
+  <rect x="145" y="35" width="110" height="32" rx="16" ry="16" fill="#000"/>
+  
+  <!-- Status Bar -->
+  <text x="50" y="55" font-family="Arial, sans-serif" font-size="14" font-weight="600" fill="#fff">9:41</text>
+  <text x="320" y="55" font-family="Arial, sans-serif" font-size="14" fill="#fff">100%</text>
+  
+  <!-- App Icon -->
+  <rect x="160" y="180" width="80" height="80" rx="18" ry="18" fill="url(#iconGrad)" filter="url(#iconGlow)"/>
+  <text x="185" y="235" font-family="Arial, sans-serif" font-size="36" fill="#fff">⏱</text>
+  
+  <!-- Title -->
+  <text x="200" y="310" font-family="Arial, sans-serif" font-size="32" font-weight="700" fill="#fff" text-anchor="middle">Hackstat</text>
+  <text x="200" y="340" font-family="Arial, sans-serif" font-size="15" fill="#8E8E93" text-anchor="middle">Your coding stats, beautifully</text>
+  
+  <!-- API Key Input -->
+  <text x="45" y="420" font-family="Arial, sans-serif" font-size="12" font-weight="600" fill="#8E8E93" letter-spacing="1">API KEY</text>
+  <rect x="35" y="435" width="330" height="55" rx="14" ry="14" fill="rgba(44,44,46,0.6)" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+  <text x="60" y="468" font-family="Arial, sans-serif" font-size="18" fill="#636366">🔑</text>
+  <text x="95" y="470" font-family="Arial, sans-serif" font-size="15" fill="#636366">Paste your Hackatime API key</text>
+  
+  <!-- Advanced Options -->
+  <text x="55" y="530" font-family="Arial, sans-serif" font-size="14" fill="#8E8E93">▶ Advanced options</text>
+  
+  <!-- Connect Button -->
+  <rect x="35" y="570" width="330" height="56" rx="14" ry="14" fill="url(#btnGrad)"/>
+  <text x="200" y="605" font-family="Arial, sans-serif" font-size="17" font-weight="600" fill="#fff" text-anchor="middle">Connect</text>
+  
+  <!-- Help Text -->
+  <text x="200" y="670" font-family="Arial, sans-serif" font-size="13" fill="#636366" text-anchor="middle">Find your API key at</text>
+  <text x="200" y="692" font-family="Arial, sans-serif" font-size="13" fill="#0A84FF" text-anchor="middle">hackatime.hackclub.com/settings</text>
+  
+  <!-- Home Indicator -->
+  <rect x="150" y="780" width="100" height="5" rx="2.5" fill="rgba(255,255,255,0.3)"/>
+</svg>

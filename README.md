@@ -7,12 +7,11 @@
 ![Flutter](https://img.shields.io/badge/Flutter-3.24-02569B?logo=flutter)
 ![License](https://img.shields.io/badge/License-MIT-green)
 
-<!-- Screenshots - add after running the app
 <p align="center">
-  <img src="assets/screenshot_home.png" width="250" alt="Home Screen"/>
-  <img src="assets/screenshot_setup.png" width="250" alt="Setup Screen"/>
+  <img src="assets/mockup_home.png" width="280" alt="Home Screen"/>
+  &nbsp;&nbsp;&nbsp;&nbsp;
+  <img src="assets/mockup_setup.png" width="280" alt="Setup Screen"/>
 </p>
--->
 
 ## ✨ Features
 
@@ -45,10 +44,12 @@ flutter build ios --release --no-codesign  # Requires macOS
 
 ## 🔧 Setup
 
-1. Get API key → [hackatime.hackclub.com/settings](https://hackatime.hackclub.com/settings)
+```
+1. Get API key → hackatime.hackclub.com/settings
 2. Launch Hackstat
 3. Paste key & connect
 4. 🎉
+```
 
 ## 🏗️ Structure
 
@@ -56,7 +57,7 @@ flutter build ios --release --no-codesign  # Requires macOS
 lib/
 ├── main.dart           # Entry point
 ├── models/             # Data models
-├── screens/            # Home & Setup screens
+├── screens/            # Home & Setup screens  
 ├── services/           # API client
 ├── theme/              # iOS 27 theme
 └── widgets/            # Glass cards & charts
@@ -64,8 +65,10 @@ lib/
 
 ## 🔌 Compatibility
 
-- ✅ [Hackatime](https://hackatime.hackclub.com)
-- ✅ [Wakapi](https://wakapi.dev)
+Works with any WakaTime-compatible API:
+
+- ✅ [Hackatime](https://hackatime.hackclub.com) (Hack Club)
+- ✅ [Wakapi](https://wakapi.dev)  
 - ✅ [WakaTime](https://wakatime.com)
 
 ## 📄 License
