@@ -1,0 +1,116 @@
+# Codemagic CI/CD configuration for building iOS app
+# Sign up at https://codemagic.io (free tier: 500 build minutes/month)
+# 
+# To use:
+# 1. Push this project to GitHub
+# 2. Connect your repo to Codemagic
+# 3. Add your Apple ID credentials in Codemagic settings
+# 4. Build and download the .ipa file
+# 5. Install via SideStore/AltStore
+
+workflows:
+  ios-app:
+    name: iOS Build
+    max_build_duration: 60
+    instance_type: mac_mini_m2
+    
+    environment:
+      flutter: stable
+      xcode: latest
+      cocoapods: default
+      groups:
+        - app_store_credentials  # Configure in Codemagic UI
+      vars:
+        BUNDLE_ID: "com.hackatime.hackatimeApp"
+        APP_NAME: "Hackatime"
+    
+    scripts:
+      - name: Get Flutter packages
+        script: flutter packages pub get
+        
+      - name: Install CocoaPods dependencies
+        script: |
+          cd ios && pod install
+          
+      - name: Flutter build iOS
+        script: |
+          flutter build ios --release --no-codesign
+          
+      - name: Build unsigned IPA
+        script: |
+          cd ios
+          xcodebuild -workspace Runner.xcworkspace \
+            -scheme Runner \
+            -sdk iphoneos \
+            -configuration Release \
+            -archivePath build/Runner.xcarchive \
+            archive CODE_SIGNING_ALLOWED=NO
+          
+          # Create unsigned IPA
+          mkdir -p build/ipa
+          cd build/Runner.xcarchive/Products/Applications
+          mkdir Payload
+          cp -r Runner.app Payload/
+          zip -r ../../../../ipa/Hackatime-unsigned.ipa Payload
+          
+    artifacts:
+      - ios/build/ipa/*.ipa
+      - build/ios/ipa/*.ipa
+      - flutter_drive.log
+      
+    publishing:
+      email:
+        recipients:
+          - your-email@example.com  # Change this
+        notify:
+          success: true
+          failure: true
+          
+  # Alternative: Ad-hoc build (requires Apple Developer account)
+  ios-adhoc:
+    name: iOS Ad-hoc Build
+    max_build_duration: 60
+    instance_type: mac_mini_m2
+    
+    environment:
+      flutter: stable
+      xcode: latest
+      cocoapods: default
+      groups:
+        - app_store_credentials
+      vars:
+        BUNDLE_ID: "com.hackatime.hackatimeApp"
+    
+    integrations:
+      app_store_connect: Hackatime  # Set up in Codemagic
+    
+    scripts:
+      - name: Set up keychain
+        script: keychain initialize
+        
+      - name: Fetch signing files
+        script: |
+          app-store-connect fetch-signing-files $BUNDLE_ID \
+            --type IOS_APP_ADHOC \
+            --create
+            
+      - name: Set up signing
+        script: keychain add-certificates
+        
+      - name: Set up code signing settings
+        script: xcode-project use-profiles
+        
+      - name: Get Flutter packages
+        script: flutter packages pub get
+        
+      - name: Install CocoaPods dependencies
+        script: cd ios && pod install
+        
+      - name: Flutter build iOS
+        script: |
+          flutter build ipa \
+            --release \
+            --export-options-plist=/Users/builder/export_options.plist
+            
+    artifacts:
+      - build/ios/ipa/*.ipa

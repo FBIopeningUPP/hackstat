@@ -1,0 +1,80 @@
+name: Build iOS IPA
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+    branches: [main, master]
+  workflow_dispatch:  # Allows manual trigger
+
+jobs:
+  build-ios:
+    name: Build iOS App
+    runs-on: macos-14  # M1 Mac runner (faster)
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          flutter-version: '3.24.0'
+          channel: 'stable'
+          cache: true
+
+      - name: Install dependencies
+        run: flutter pub get
+
+      - name: Build iOS (unsigned)
+        run: |
+          flutter build ios --release --no-codesign
+          
+      - name: Create unsigned IPA
+        run: |
+          cd build/ios/iphoneos
+          mkdir -p Payload
+          cp -r Runner.app Payload/
+          zip -r ../../../Hackatime-unsigned.ipa Payload
+          
+      - name: Upload IPA artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: Hackatime-iOS
+          path: Hackatime-unsigned.ipa
+          retention-days: 30
+
+  # Optional: Also build Android APK
+  build-android:
+    name: Build Android APK
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'zulu'
+          java-version: '17'
+
+      - name: Setup Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          flutter-version: '3.24.0'
+          channel: 'stable'
+          cache: true
+
+      - name: Install dependencies
+        run: flutter pub get
+
+      - name: Build APK
+        run: flutter build apk --release
+
+      - name: Upload APK artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: Hackatime-Android
+          path: build/app/outputs/flutter-apk/app-release.apk
+          retention-days: 30
