@@ -129,12 +129,12 @@ class _SetupScreenState extends State<SetupScreen> with SingleTickerProviderStat
                           ),
                           const SizedBox(height: 24),
                           Text(
-                            'Hackatime',
+                            'Hackstat',
                             style: Theme.of(context).textTheme.displayMedium,
                           ),
                           const SizedBox(height: 8),
                           Text(
-                            'Track your coding time beautifully',
+                            'Your coding stats, beautifully',
                             style: Theme.of(context).textTheme.bodyMedium,
                           ),
                         ],

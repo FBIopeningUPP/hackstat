@@ -23,7 +23,7 @@ class HackatimeApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Hackatime',
+      title: 'Hackstat',
       debugShowCheckedModeBanner: false,
       theme: AppTheme.darkTheme,
       home: const AppRouter(),

@@ -35,13 +35,13 @@ jobs:
           cd build/ios/iphoneos
           mkdir -p Payload
           cp -r Runner.app Payload/
-          zip -r ../../../Hackatime-unsigned.ipa Payload
+          zip -r ../../../Hackstat.ipa Payload
           
       - name: Upload IPA artifact
         uses: actions/upload-artifact@v4
         with:
-          name: Hackatime-iOS
-          path: Hackatime-unsigned.ipa
+          name: Hackstat-iOS
+          path: Hackstat.ipa
           retention-days: 30
 
   # Optional: Also build Android APK
@@ -75,6 +75,6 @@ jobs:
       - name: Upload APK artifact
         uses: actions/upload-artifact@v4
         with:
-          name: Hackatime-Android
+          name: Hackstat-Android
           path: build/app/outputs/flutter-apk/app-release.apk
           retention-days: 30
