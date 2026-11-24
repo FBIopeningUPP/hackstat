@@ -35,9 +35,8 @@ class ApiService {
 
   static Future<Map<String, String>> _getHeaders() async {
     final apiKey = await getApiKey();
-    final encoded = base64Encode(utf8.encode(apiKey ?? ''));
     return {
-      'Authorization': 'Basic $encoded',
+      'Authorization': 'Bearer $apiKey',
       'Content-Type': 'application/json',
     };
   }
@@ -45,20 +44,18 @@ class ApiService {
   static Future<bool> validateApiKey(String apiKey, {String? baseUrl}) async {
     try {
       final url = baseUrl ?? defaultBaseUrl;
-      final encoded = base64Encode(utf8.encode(apiKey));
       
-      // Use heartbeats endpoint for validation (POST with empty array)
-      final response = await http.post(
-        Uri.parse('$url/api/v1/users/current/heartbeats'),
+      // Use stats endpoint for validation
+      final response = await http.get(
+        Uri.parse('$url/api/hackatime/v1/users/current/stats/last_7_days'),
         headers: {
-          'Authorization': 'Basic $encoded',
+          'Authorization': 'Bearer $apiKey',
           'Content-Type': 'application/json',
         },
-        body: json.encode([]), // Empty heartbeats array
       ).timeout(const Duration(seconds: 10));
 
-      // 201 = success, 401/403 = invalid key, anything else = server issue
-      return response.statusCode == 201 || response.statusCode == 200;
+      // 200 = success, 401/403 = invalid key
+      return response.statusCode == 200;
     } catch (e) {
       return false;
     }
@@ -69,9 +66,9 @@ class ApiService {
       final baseUrl = await getBaseUrl();
       final headers = await _getHeaders();
       
-      // Get summaries to verify API key works (we'll just check if it succeeds)
+      // Use stats endpoint to verify API key works
       final response = await http.get(
-        Uri.parse('$baseUrl/api/v1/users/current/summaries?start=${DateTime.now().subtract(const Duration(days: 1)).toIso8601String().split('T')[0]}&end=${DateTime.now().toIso8601String().split('T')[0]}'),
+        Uri.parse('$baseUrl/api/hackatime/v1/users/current/stats/last_7_days'),
         headers: headers,
       ).timeout(const Duration(seconds: 10));
 
@@ -93,7 +90,7 @@ class ApiService {
       final baseUrl = await getBaseUrl();
       final headers = await _getHeaders();
       final response = await http.get(
-        Uri.parse('$baseUrl/api/v1/users/current/stats/$range'),
+        Uri.parse('$baseUrl/api/hackatime/v1/users/current/stats/$range'),
         headers: headers,
       ).timeout(const Duration(seconds: 15));
 
