@@ -59,6 +59,8 @@ class _SetupScreenState extends State<SetupScreen> with SingleTickerProviderStat
     final baseUrl = _baseUrlController.text.trim();
     final isValid = await ApiService.validateApiKey(apiKey, baseUrl: baseUrl);
 
+    if (!mounted) return;
+
     if (isValid) {
       await ApiService.saveApiKey(apiKey);
       await ApiService.saveBaseUrl(baseUrl);
@@ -98,18 +100,18 @@ class _SetupScreenState extends State<SetupScreen> with SingleTickerProviderStat
             child: FadeTransition(
               opacity: _fadeAnim,
               child: SingleChildScrollView(
-                padding: const EdgeInsets.all(24),
+                padding: const EdgeInsets.all(20), // Reduced from 24 for SE
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    const SizedBox(height: 60),
+                    const SizedBox(height: 40), // Reduced from 60 for SE
                     // Logo / Title
                     Center(
                       child: Column(
                         children: [
                           Container(
-                            width: 80,
-                            height: 80,
+                            width: 70, // Reduced from 80 for SE
+                            height: 70,
                             decoration: BoxDecoration(
                               gradient: AppTheme.accentGradient,
                               borderRadius: BorderRadius.circular(20),
@@ -124,10 +126,10 @@ class _SetupScreenState extends State<SetupScreen> with SingleTickerProviderStat
                             child: const Icon(
                               Icons.timer_outlined,
                               color: Colors.white,
-                              size: 40,
+                              size: 35, // Reduced from 40 for SE
                             ),
                           ),
-                          const SizedBox(height: 24),
+                          const SizedBox(height: 20), // Reduced from 24 for SE
                           Text(
                             'Hackstat',
                             style: Theme.of(context).textTheme.displayMedium,
@@ -140,7 +142,7 @@ class _SetupScreenState extends State<SetupScreen> with SingleTickerProviderStat
                         ],
                       ),
                     ),
-                    const SizedBox(height: 60),
+                    const SizedBox(height: 40), // Reduced from 60 for SE
                     // API Key input
                     Text(
                       'API KEY',

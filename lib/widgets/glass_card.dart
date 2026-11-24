@@ -25,13 +25,13 @@ class GlassCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: margin ?? const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+      margin: margin ?? const EdgeInsets.symmetric(horizontal: 12, vertical: 6), // Reduced for SE
       child: ClipRRect(
         borderRadius: BorderRadius.circular(borderRadius),
         child: BackdropFilter(
           filter: ImageFilter.blur(sigmaX: blur, sigmaY: blur),
           child: Container(
-            padding: padding ?? const EdgeInsets.all(20),
+            padding: padding ?? const EdgeInsets.all(16), // Reduced from 20 for SE
             decoration: BoxDecoration(
               color: backgroundColor ?? AppTheme.cardColor.withOpacity(0.7),
               borderRadius: BorderRadius.circular(borderRadius),
@@ -74,13 +74,13 @@ class GradientGlassCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: margin ?? const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+      margin: margin ?? const EdgeInsets.symmetric(horizontal: 12, vertical: 6), // Reduced for SE
       child: ClipRRect(
         borderRadius: BorderRadius.circular(borderRadius),
         child: BackdropFilter(
           filter: ImageFilter.blur(sigmaX: 20, sigmaY: 20),
           child: Container(
-            padding: padding ?? const EdgeInsets.all(20),
+            padding: padding ?? const EdgeInsets.all(16), // Reduced from 20 for SE
             decoration: BoxDecoration(
               gradient: gradient ?? LinearGradient(
                 begin: Alignment.topLeft,

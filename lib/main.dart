@@ -50,6 +50,7 @@ class _AppRouterState extends State<AppRouter> {
 
   Future<void> _checkApiKey() async {
     final apiKey = await ApiService.getApiKey();
+    if (!mounted) return;
     setState(() {
       _hasApiKey = apiKey != null && apiKey.isNotEmpty;
       _isLoading = false;

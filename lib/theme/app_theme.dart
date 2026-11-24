@@ -94,54 +94,54 @@ class AppTheme {
       // Uses system font (SF Pro on iOS, Roboto on Android)
       textTheme: const TextTheme(
         displayLarge: TextStyle(
-          fontSize: 34,
+          fontSize: 28, // Reduced from 34 for SE
           fontWeight: FontWeight.w700,
           color: textPrimary,
           letterSpacing: -0.5,
         ),
         displayMedium: TextStyle(
-          fontSize: 28,
+          fontSize: 24, // Reduced from 28 for SE
           fontWeight: FontWeight.w700,
           color: textPrimary,
           letterSpacing: -0.3,
         ),
         headlineLarge: TextStyle(
-          fontSize: 22,
+          fontSize: 20, // Reduced from 22 for SE
           fontWeight: FontWeight.w600,
           color: textPrimary,
         ),
         headlineMedium: TextStyle(
-          fontSize: 20,
+          fontSize: 18, // Reduced from 20 for SE
           fontWeight: FontWeight.w600,
           color: textPrimary,
         ),
         titleLarge: TextStyle(
-          fontSize: 17,
+          fontSize: 16, // Reduced from 17 for SE
           fontWeight: FontWeight.w600,
           color: textPrimary,
         ),
         titleMedium: TextStyle(
-          fontSize: 15,
+          fontSize: 14, // Reduced from 15 for SE
           fontWeight: FontWeight.w500,
           color: textPrimary,
         ),
         bodyLarge: TextStyle(
-          fontSize: 17,
+          fontSize: 16, // Reduced from 17 for SE
           fontWeight: FontWeight.w400,
           color: textPrimary,
         ),
         bodyMedium: TextStyle(
-          fontSize: 15,
+          fontSize: 14, // Reduced from 15 for SE
           fontWeight: FontWeight.w400,
           color: textSecondary,
         ),
         bodySmall: TextStyle(
-          fontSize: 13,
+          fontSize: 12, // Reduced from 13 for SE
           fontWeight: FontWeight.w400,
           color: textTertiary,
         ),
         labelLarge: TextStyle(
-          fontSize: 13,
+          fontSize: 12, // Reduced from 13 for SE
           fontWeight: FontWeight.w600,
           color: textSecondary,
           letterSpacing: 0.5,

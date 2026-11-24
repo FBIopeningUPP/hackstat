@@ -19,25 +19,25 @@ class TotalTimeCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GradientGlassCard(
-      padding: const EdgeInsets.all(24),
+      padding: const EdgeInsets.all(18), // Reduced from 24 for SE
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Row(
             children: [
               Container(
-                padding: const EdgeInsets.all(10),
+                padding: const EdgeInsets.all(8), // Reduced from 10 for SE
                 decoration: BoxDecoration(
                   color: Colors.white.withOpacity(0.15),
-                  borderRadius: BorderRadius.circular(12),
+                  borderRadius: BorderRadius.circular(10),
                 ),
                 child: const Icon(
                   Icons.timer_outlined,
                   color: Colors.white,
-                  size: 24,
+                  size: 20, // Reduced from 24 for SE
                 ),
               ),
-              const SizedBox(width: 12),
+              const SizedBox(width: 10),
               Text(
                 'Total Coding Time',
                 style: Theme.of(context).textTheme.titleMedium?.copyWith(
@@ -46,7 +46,7 @@ class TotalTimeCard extends StatelessWidget {
               ),
             ],
           ),
-          const SizedBox(height: 20),
+          const SizedBox(height: 16), // Reduced from 20 for SE
           TweenAnimationBuilder<double>(
             tween: Tween(begin: 0, end: 1),
             duration: const Duration(milliseconds: 800),
@@ -55,7 +55,7 @@ class TotalTimeCard extends StatelessWidget {
               return Text(
                 totalTime,
                 style: Theme.of(context).textTheme.displayLarge?.copyWith(
-                  fontSize: 48,
+                  fontSize: 40, // Reduced from 48 for SE
                   fontWeight: FontWeight.w800,
                   color: Colors.white,
                   letterSpacing: -1,
@@ -63,13 +63,13 @@ class TotalTimeCard extends StatelessWidget {
               );
             },
           ),
-          const SizedBox(height: 8),
+          const SizedBox(height: 6), // Reduced from 8 for SE
           Row(
             children: [
               Icon(
                 Icons.trending_up_rounded,
                 color: AppTheme.accentGreen,
-                size: 18,
+                size: 16, // Reduced from 18 for SE
               ),
               const SizedBox(width: 6),
               Text(
@@ -280,9 +280,9 @@ class ActivityChartCard extends StatelessWidget {
             'Activity',
             style: Theme.of(context).textTheme.headlineMedium,
           ),
-          const SizedBox(height: 24),
+          const SizedBox(height: 20), // Reduced from 24 for SE
           SizedBox(
-            height: 180,
+            height: 150, // Reduced from 180 for SE
             child: BarChart(
               BarChartData(
                 alignment: BarChartAlignment.spaceAround,
