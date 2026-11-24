@@ -64,6 +64,7 @@ class _SetupScreenState extends State<SetupScreen> with SingleTickerProviderStat
     if (isValid) {
       await ApiService.saveApiKey(apiKey);
       await ApiService.saveBaseUrl(baseUrl);
+      if (!mounted) return;
       widget.onComplete();
     } else {
       setState(() {
@@ -104,14 +105,14 @@ class _SetupScreenState extends State<SetupScreen> with SingleTickerProviderStat
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    const SizedBox(height: 40), // Reduced from 60 for SE
+                    const SizedBox(height: 24), // Reduced from 40 for SE
                     // Logo / Title
                     Center(
                       child: Column(
                         children: [
                           Container(
-                            width: 70, // Reduced from 80 for SE
-                            height: 70,
+                            width: 60, // Reduced from 70 for SE
+                            height: 60,
                             decoration: BoxDecoration(
                               gradient: AppTheme.accentGradient,
                               borderRadius: BorderRadius.circular(20),
@@ -126,10 +127,10 @@ class _SetupScreenState extends State<SetupScreen> with SingleTickerProviderStat
                             child: const Icon(
                               Icons.timer_outlined,
                               color: Colors.white,
-                              size: 35, // Reduced from 40 for SE
+                              size: 30, // Reduced from 35 for SE
                             ),
                           ),
-                          const SizedBox(height: 20), // Reduced from 24 for SE
+                          const SizedBox(height: 12), // Reduced from 20 for SE
                           Text(
                             'Hackstat',
                             style: Theme.of(context).textTheme.displayMedium,
@@ -142,7 +143,7 @@ class _SetupScreenState extends State<SetupScreen> with SingleTickerProviderStat
                         ],
                       ),
                     ),
-                    const SizedBox(height: 40), // Reduced from 60 for SE
+                    const SizedBox(height: 24), // Reduced from 40 for SE
                     // API Key input
                     Text(
                       'API KEY',

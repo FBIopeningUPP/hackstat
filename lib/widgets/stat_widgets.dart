@@ -55,7 +55,7 @@ class TotalTimeCard extends StatelessWidget {
               return Text(
                 totalTime,
                 style: Theme.of(context).textTheme.displayLarge?.copyWith(
-                  fontSize: 40, // Reduced from 48 for SE
+                  fontSize: 36, // Optimized for SE
                   fontWeight: FontWeight.w800,
                   color: Colors.white,
                   letterSpacing: -1,
@@ -280,9 +280,9 @@ class ActivityChartCard extends StatelessWidget {
             'Activity',
             style: Theme.of(context).textTheme.headlineMedium,
           ),
-          const SizedBox(height: 20), // Reduced from 24 for SE
+          const SizedBox(height: 16), // Optimized for SE
           SizedBox(
-            height: 150, // Reduced from 180 for SE
+            height: 140, // Optimized for SE
             child: BarChart(
               BarChartData(
                 alignment: BarChartAlignment.spaceAround,

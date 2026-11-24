@@ -76,7 +76,7 @@ class AppTheme {
   };
 
   static Color getLanguageColor(String language) {
-    return languageColors[language] ?? languageColors['Other']!;
+    return languageColors[language] ?? languageColors['Other'] ?? const Color(0xFF8E8E93);
   }
 
   static ThemeData get darkTheme {

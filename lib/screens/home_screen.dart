@@ -56,14 +56,22 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
         ApiService.getSummaries(start: start, end: end),
       ]);
 
+      if (!mounted) return;
+
       setState(() {
         _user = results[0] as Map<String, dynamic>?;
         _stats = results[1] as HackatimeStats?;
         _isLoading = false;
       });
     } catch (e) {
+      if (!mounted) return;
+      
       setState(() {
-        _error = 'Failed to load data';
+        _error = e.toString().contains('SocketException') 
+            ? 'No internet connection'
+            : e.toString().contains('TimeoutException')
+            ? 'Request timed out'
+            : 'Failed to load data: ${e.toString()}';
         _isLoading = false;
       });
     }
@@ -133,7 +141,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                   // App Bar
                   SliverToBoxAdapter(
                     child: Padding(
-                      padding: const EdgeInsets.fromLTRB(20, 16, 20, 8),
+                      padding: const EdgeInsets.fromLTRB(16, 12, 16, 6), // Optimized for SE
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
@@ -263,7 +271,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                       ),
                     // Bottom padding
                     const SliverToBoxAdapter(
-                      child: SizedBox(height: 40),
+                      child: SizedBox(height: 24), // Optimized for SE
                     ),
                   ] else
                     SliverFillRemaining(
