@@ -33,12 +33,19 @@ class GlassCard extends StatelessWidget {
           child: Container(
             padding: padding ?? const EdgeInsets.all(20),
             decoration: BoxDecoration(
-              color: backgroundColor ?? AppTheme.cardColor.withOpacity(0.6),
+              color: backgroundColor ?? AppTheme.cardColor.withOpacity(0.7),
               borderRadius: BorderRadius.circular(borderRadius),
               border: border ?? Border.all(
-                color: Colors.white.withOpacity(0.1),
-                width: 1,
+                color: Colors.white.withOpacity(0.15),
+                width: 1.5,
               ),
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.black.withOpacity(0.3),
+                  blurRadius: 20,
+                  offset: const Offset(0, 10),
+                ),
+              ],
             ),
             child: child,
           ),
@@ -71,7 +78,7 @@ class GradientGlassCard extends StatelessWidget {
       child: ClipRRect(
         borderRadius: BorderRadius.circular(borderRadius),
         child: BackdropFilter(
-          filter: ImageFilter.blur(sigmaX: 15, sigmaY: 15),
+          filter: ImageFilter.blur(sigmaX: 20, sigmaY: 20),
           child: Container(
             padding: padding ?? const EdgeInsets.all(20),
             decoration: BoxDecoration(
@@ -79,15 +86,22 @@ class GradientGlassCard extends StatelessWidget {
                 begin: Alignment.topLeft,
                 end: Alignment.bottomRight,
                 colors: [
-                  AppTheme.accentBlue.withOpacity(0.3),
-                  AppTheme.accentPurple.withOpacity(0.2),
+                  AppTheme.accentBlue.withOpacity(0.4),
+                  AppTheme.accentPurple.withOpacity(0.3),
                 ],
               ),
               borderRadius: BorderRadius.circular(borderRadius),
               border: Border.all(
-                color: Colors.white.withOpacity(0.2),
-                width: 1,
+                color: Colors.white.withOpacity(0.25),
+                width: 1.5,
               ),
+              boxShadow: [
+                BoxShadow(
+                  color: AppTheme.accentBlue.withOpacity(0.3),
+                  blurRadius: 30,
+                  offset: const Offset(0, 15),
+                ),
+              ],
             ),
             child: child,
           ),

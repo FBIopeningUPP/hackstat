@@ -83,11 +83,11 @@ class _SetupScreenState extends State<SetupScreen> with SingleTickerProviderStat
               decoration: BoxDecoration(
                 gradient: RadialGradient(
                   center: const Alignment(-0.5, -0.5),
-                  radius: 1.5,
+                  radius: 1.8,
                   colors: [
-                    AppTheme.accentBlue.withOpacity(0.15),
+                    AppTheme.accentBlue.withOpacity(0.25),
                     AppTheme.background,
-                    AppTheme.accentPurple.withOpacity(0.1),
+                    AppTheme.accentPurple.withOpacity(0.2),
                   ],
                 ),
               ),

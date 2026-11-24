@@ -1,26 +1,26 @@
 import 'package:flutter/material.dart';
 
 class AppTheme {
-  // iOS 27 inspired colors
-  static const Color background = Color(0xFF0A0A0F);
-  static const Color surfaceColor = Color(0xFF1C1C1E);
-  static const Color cardColor = Color(0xFF2C2C2E);
-  static const Color accentBlue = Color(0xFF0A84FF);
-  static const Color accentPurple = Color(0xFF5E5CE6);
-  static const Color accentPink = Color(0xFFFF375F);
-  static const Color accentOrange = Color(0xFFFF9F0A);
-  static const Color accentGreen = Color(0xFF30D158);
-  static const Color accentCyan = Color(0xFF64D2FF);
+  // Modern dark UI colors (inspired by chat interfaces)
+  static const Color background = Color(0xFF0D0D12);
+  static const Color surfaceColor = Color(0xFF1A1A24);
+  static const Color cardColor = Color(0xFF252535);
+  static const Color accentBlue = Color(0xFF6C63FF);
+  static const Color accentPurple = Color(0xFF8B5CF6);
+  static const Color accentPink = Color(0xFFEC4899);
+  static const Color accentOrange = Color(0xFFF59E0B);
+  static const Color accentGreen = Color(0xFF10B981);
+  static const Color accentCyan = Color(0xFF06B6D4);
   static const Color textPrimary = Color(0xFFFFFFFF);
-  static const Color textSecondary = Color(0xFF8E8E93);
-  static const Color textTertiary = Color(0xFF636366);
+  static const Color textSecondary = Color(0xFFA1A1AA);
+  static const Color textTertiary = Color(0xFF71717A);
 
   // Gradient for glassmorphism
   static const LinearGradient glassGradient = LinearGradient(
     begin: Alignment.topLeft,
     end: Alignment.bottomRight,
     colors: [
-      Color(0x40FFFFFF),
+      Color(0x50FFFFFF),
       Color(0x10FFFFFF),
     ],
   );
@@ -29,8 +29,19 @@ class AppTheme {
     begin: Alignment.topLeft,
     end: Alignment.bottomRight,
     colors: [
-      accentBlue,
-      accentPurple,
+      Color(0xFF6C63FF),
+      Color(0xFF8B5CF6),
+    ],
+  );
+
+  // Chat-style bubble gradient
+  static const LinearGradient bubbleGradient = LinearGradient(
+    begin: Alignment.topLeft,
+    end: Alignment.bottomRight,
+    colors: [
+      Color(0xFF6C63FF),
+      Color(0xFF8B5CF6),
+      Color(0xFFEC4899),
     ],
   );
 

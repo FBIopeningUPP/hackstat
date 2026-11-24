@@ -109,10 +109,11 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
               decoration: BoxDecoration(
                 gradient: RadialGradient(
                   center: const Alignment(0.3, -0.8),
-                  radius: 1.2,
+                  radius: 1.5,
                   colors: [
-                    AppTheme.accentPurple.withOpacity(0.12),
+                    AppTheme.accentPurple.withOpacity(0.2),
                     AppTheme.background,
+                    AppTheme.accentBlue.withOpacity(0.15),
                   ],
                 ),
               ),
